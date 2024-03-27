@@ -1,75 +1,29 @@
-# Nuxt 3 Minimal Starter
+Reproduction steps:
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+1. Clone the repository
+2. Run the following command:
+```
+npm i
+```
+3. Run the following command:
+```
+npm run cypress:e2e
+```
+4. Select browser and run the `test.cy.js` test
+5. See that the test fails with the following error:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+Error: [vite]: Rollup failed to resolve import "@utils" from "/mnt/PROJECTS/Cypress-Path-Alias-Reproduction/cypress/e2e/test.cy.js".
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+6. Now go to `.nuxt/tsconfig.json` and add the following line
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+"baseUrl": "./",
 ```
+7. Refresh the Cypress browser window and see that the error disappears, if it shows
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
+Sorry, we could not load: http://localhost:3000/ 
+```
+Then it went correctly, nuxt crashed/didn't startup correctly when the paths earlier couldn't be resolved.
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The error happens whether webpack or Vite is used, I used Vite in this example as it allows hot reload to showcase the fix.

@@ -8,8 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "cypress:open": "npx cypress open --e2e",
-    "cypress:e2e": "start-server-and-test 'nuxi dev' http://localhost:3000 cypress:open"
+    "cypress:e2e": "start-server-and-test 'nuxi dev' http://localhost:3000 'npx cypress open --e2e'"
   },
   "dependencies": {
     "nuxt": "^3.11.1",
@@ -18,6 +17,9 @@
   },
   "devDependencies": {
     "cypress": "^13.7.1",
-    "start-server-and-test": "^2.0.3"
+    "cypress-vite": "^1.5.0",
+    "start-server-and-test": "^2.0.3",
+    "typescript": "^5.4.3",
+    "vite-tsconfig-paths": "^4.3.2"
   }
 }
