@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "cypress:open": "DEBUG=\"vite-tsconfig-paths vite:resolve-details\" npx cypress open --e2e --browser chromium"
+    "cypress:open": "npx cypress open --e2e",
+    "cypress:e2e": "start-server-and-test 'nuxi dev' http://localhost:3000 cypress:open"
   },
   "dependencies": {
     "nuxt": "^3.11.1",
@@ -16,6 +17,7 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "cypress": "^13.7.1"
+    "cypress": "^13.7.1",
+    "start-server-and-test": "^2.0.3"
   }
 }
