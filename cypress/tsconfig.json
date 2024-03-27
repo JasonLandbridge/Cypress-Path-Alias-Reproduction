@@ -1,0 +1,10 @@
+{
+	"extends": "../tsconfig.json", // Needed for the path aliases
+	"compilerOptions": {
+		"types": ["cypress","node"],
+		"baseUrl": "./",
+		"sourceMap": false,
+		"target": "ES2019"
+	},
+	"include": ["**/*.ts", "../node_modules/cypress/types", "../node_modules/@types/mocha"],
+}
